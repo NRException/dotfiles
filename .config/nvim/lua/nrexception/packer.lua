@@ -7,12 +7,14 @@ return require('packer').startup(function(use)
   	-- Packer can manage itself
   	use 'wbthomason/packer.nvim'
 
+	-- Telescope
 	use {
   		'nvim-telescope/telescope.nvim', 
 		tag = '0.1.4',
  	 	requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
+	-- LSP and treesitter
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
 	use {
@@ -30,11 +32,15 @@ return require('packer').startup(function(use)
 			{'L3MON4D3/LuaSnip'},
 		}
 	}
-	
-	use 'feline-nvim/feline.nvim' -- Status bar plugin
+	-- Status bar plugins
+	use 'feline-nvim/feline.nvim'
+	use 'lewis6991/gitsigns.nvim'
+	use 'nvim-tree/nvim-web-devicons'
 
+	-- Theme...
 	use({ 'rose-pine/neovim', as = 'rose-pine' })
-
+	
+	-- Undo Tree...
 	use( 'mbbill/undotree' )
 end)
 

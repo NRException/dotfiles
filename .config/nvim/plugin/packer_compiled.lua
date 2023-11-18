@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/nrexception/.local/share/nvim/site/pack/packer/start/feline.nvim",
     url = "https://github.com/feline-nvim/feline.nvim"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/nrexception/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/nrexception/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
@@ -118,6 +123,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nrexception/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/nrexception/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
