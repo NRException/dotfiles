@@ -11,7 +11,12 @@ local wk = require("which-key")
 wk.register({
 	name = "Leader Main",
 	u = {"UndoTree Menu Toggle"},
+	q = {"Harpoon file 1"},
+	w = {"Harpoon file 2"},
+	e = {"Harpoon file 3"},
+	r = {"Harpoon file 4"},
 	b = {"Browse Files (netrw)"},
+	s = {"Grep Search (Telescope)"},
 	h = { name = "Harpoon", m = {"Harpoon Menu Toggle"}, a = {"Harpoon Add File"} },
-	f = { name = "Telescope", f = {"Telescope Find File"}, g = {"Telescope Find Git File"}, s = {"Telescope Live Grep"} } 
+	f = { name = "Telescope", f = {"Telescope Find File"}, g = {"Telescope Find Git File"} } 
 }, { prefix = "<leader>" })
