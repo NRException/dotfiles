@@ -30,6 +30,8 @@ return require('packer').startup(function(use)
 			{'L3MON4D3/LuaSnip'},
 		}
 	}
+	
+	use 'feline-nvim/feline.nvim' -- Status bar plugin
 
 	use({ 'rose-pine/neovim', as = 'rose-pine' })
 
