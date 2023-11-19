@@ -59,5 +59,9 @@ return require('packer').startup(function(use)
 	    }
 	  end
 	}
+    
+    -- CoC stuff. 
+    use {'neoclide/coc.nvim', branch = 'release'} -- Code Completion
+
 end)
 

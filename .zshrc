@@ -104,3 +104,5 @@ source $ZSH/oh-my-zsh.sh
 gitall () {
 	git add -A && git commit -m "$*" && git push;
 }
+
+export PATH=$PATH:/usr/local/go/bin
