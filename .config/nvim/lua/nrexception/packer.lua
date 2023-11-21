@@ -60,8 +60,12 @@ return require('packer').startup(function(use)
 	  end
 	}
     
-    -- CoC stuff. 
+    -- CoC (Code completion) stuff. 
     use {'neoclide/coc.nvim', branch = 'release'} -- Code Completion
-
+    
+    -- ToggleTerm (Integrated terminal)
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+        require("toggleterm").setup()
+    end}
 end)
 

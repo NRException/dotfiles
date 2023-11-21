@@ -70,7 +70,15 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+git
+git-prompt
+poetry
+virtualenvwrapper
+zsh-autosuggestions
+zsh-syntax-highlighting
+zsh-autocomplete)
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -99,10 +107,26 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
 
-gitall () {
-	git add -A && git commit -m "$*" && git push;
+#Custom Aliases for Zonal
+export PATH=$PATH:$HOME/.tfenv/versions/1.5.0
+export PATH=$PATH:$HOME/.tfenv/bin
+export PATH=$PATH:$HOME/.local/bin
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
+unsetopt nomatch
+eval "$(starship init zsh)"
+alias c=clear
+
+#Custom Functions for Zonal
+gitall() {
+    git add --all
+    if [ "$1" != "" ] # or better, if [ -n "$1" ]
+    then
+        git commit -m "$1"
+    else
+        git commit -m update
+    fi
+    git push
 }
 
 export PATH=$PATH:/usr/local/go/bin
