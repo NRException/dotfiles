@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "coc-powershell": ">=0.1.4",
-    "coc-go": ">=1.3.29"
-  }
-}
