@@ -9,7 +9,7 @@ return require('packer').startup(function(use)
 
 	-- Telescope
 	use {
-  		'nvim-telescope/telescope.nvim', 
+  		'nvim-telescope/telescope.nvim',
 		tag = '0.1.4',
  	 	requires = { {'nvim-lua/plenary.nvim'} }
 	}
@@ -39,7 +39,7 @@ return require('packer').startup(function(use)
 
 	-- Theme...
 	use({ 'rose-pine/neovim', as = 'rose-pine' })
-	
+
 	-- Undo Tree...
 	use( 'mbbill/undotree' )
 
@@ -59,10 +59,7 @@ return require('packer').startup(function(use)
 	    }
 	  end
 	}
-    
-    -- CoC (Code completion) stuff. 
-    use {'neoclide/coc.nvim', branch = 'release'} -- Code Completion
-    
+
     -- ToggleTerm (Integrated terminal)
     use {"akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
