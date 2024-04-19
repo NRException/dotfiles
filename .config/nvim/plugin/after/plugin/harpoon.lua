@@ -1,10 +1,13 @@
-require("telescope").load_extension('harpoon')
+local harpoon = require('harpoon')
+harpoon:setup({})
 
-require("harpoon").setup({  })
+vim.keymap.set("n", "<leader>hm", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set("n", "<leader>ha", function() harpoon:list():add() end)
 
-vim.keymap.set("n", "<leader>hm", function() require("harpoon.ui").toggle_quick_menu() end)
-vim.keymap.set("n", "<leader>ha", function() require("harpoon.mark").add_file() end)
-vim.keymap.set("n", "<leader>q", function() require("harpoon.ui").nav_file(1) end)
-vim.keymap.set("n", "<leader>w", function() require("harpoon.ui").nav_file(2) end)
-vim.keymap.set("n", "<leader>e", function() require("harpoon.ui").nav_file(3) end)
-vim.keymap.set("n", "<leader>r", function() require("harpoon.ui").nav_file(4) end)
+vim.keymap.set("n", "<C-q>", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<C-w>", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<C-f>", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<C-p>", function() harpoon:list():select(4) end)
+
+vim.keymap.set("n", "<C-p>", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<C-n>", function() harpoon:list():next() end)

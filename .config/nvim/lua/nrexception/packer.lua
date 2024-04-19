@@ -44,7 +44,11 @@ return require('packer').startup(function(use)
 	use( 'mbbill/undotree' )
 
 	-- Harpoon, TY Prime :)
-	use( 'ThePrimeagen/harpoon' )
+	use {
+         "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { {"nvim-lua/plenary.nvim"} }
+    }
 
 	-- Which Key
 	use {
