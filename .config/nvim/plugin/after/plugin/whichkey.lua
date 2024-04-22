@@ -18,5 +18,5 @@ wk.register({
 	b = {"Browse Files (netrw)"},
 	s = {"Grep Search (Telescope)"},
 	h = { name = "Harpoon", m = {"Harpoon Menu Toggle"}, a = {"Harpoon Add File"} },
-	f = { name = "Telescope", f = {"Telescope Find File"}, g = {"Telescope Find Git File"} } 
+	f = { name = "Telescope", f = {"Telescope Find File"}, g = {"Telescope Find Git File"} }
 }, { prefix = "<leader>" })
