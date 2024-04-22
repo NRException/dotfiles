@@ -46,9 +46,6 @@ return require('packer').startup(function(use)
 	-- Theme...
 	use({ 'rose-pine/neovim', as = 'rose-pine' })
 
-	-- Undo Tree...
-	use( 'mbbill/undotree' )
-
 	-- Harpoon, TY Prime :)
 	use {
          "ThePrimeagen/harpoon",
