@@ -53,6 +53,11 @@ return require('packer').startup(function(use)
         requires = { {"nvim-lua/plenary.nvim"} }
     }
 
+    -- Git good game.
+    use {
+        'ThePrimeagen/vim-be-good'
+    }
+
 	-- Which Key
 	use {
 	  "folke/which-key.nvim",
