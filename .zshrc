@@ -131,3 +131,4 @@ gitall() {
 
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:/opt/nvim-linux64/bin"
+eval "$(rbenv init - zsh)"
