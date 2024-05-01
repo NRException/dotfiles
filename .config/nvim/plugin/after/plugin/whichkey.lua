@@ -14,7 +14,8 @@ wk.register({
 	w = {"Harpoon file 2"},
 	e = {"Harpoon file 3"},
 	r = {"Harpoon file 4"},
-	b = {"Browse Files (netrw)"},
+	b = {"(B)rowse Files (netrw)"},
+    l = {"(L)ist special chars)"},
 	h = { name = "Harpoon", m = {"Harpoon Menu Toggle"}, a = {"Harpoon Add File"} },
 	f = { name = "Telescope", f = {"Telescope (F)ind File"}, g = {"Telescope Find Rip(G)rep"}, r = {"Telescope Find in (R)epo"} }
 }, { prefix = "<leader>" })
