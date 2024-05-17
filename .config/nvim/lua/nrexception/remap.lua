@@ -22,5 +22,5 @@ end
 vim.keymap.set("n", "<leader>l", show_hide_special_chars)
 
 
--- Map keys for anything else
+-- Map keys for anything else (plugins etc...)
 vim.keymap.set("n", "<leader>b", "<CMD>Oil<CR>", { desc = "Open parent directory" })

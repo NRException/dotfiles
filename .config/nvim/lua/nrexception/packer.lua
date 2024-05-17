@@ -59,12 +59,7 @@ return require('packer').startup(function(use)
     }
 
     -- oil netrw / browser replacement
-      use({
-        "stevearc/oil.nvim",
-        config = function()
-          require("oil").setup()
-        end,
-      })
+      use({"stevearc/oil.nvim"})
 
 	-- Which Key
 	use {

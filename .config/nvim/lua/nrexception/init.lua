@@ -2,9 +2,6 @@ print("Loading NRException profile...")
 require("nrexception.remap")
 require("nrexception.packer")
 
--- Oil.nvim
-require("oil").setup()
-
 -- Add relative line numbers and remove ugly vim fill chars.
 vim.wo.relativenumber = true
 vim.opt.number = true
