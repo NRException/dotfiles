@@ -1,6 +1,5 @@
 -- Map keys for vim builtin
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>b", vim.cmd.Ex)
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -21,3 +20,7 @@ local function show_hide_special_chars()
 end
 
 vim.keymap.set("n", "<leader>l", show_hide_special_chars)
+
+
+-- Map keys for anything else
+vim.keymap.set("n", "<leader>b", "<CMD>Oil<CR>", { desc = "Open parent directory" })

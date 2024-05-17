@@ -58,6 +58,14 @@ return require('packer').startup(function(use)
         'ThePrimeagen/vim-be-good'
     }
 
+    -- oil netrw / browser replacement
+      use({
+        "stevearc/oil.nvim",
+        config = function()
+          require("oil").setup()
+        end,
+      })
+
 	-- Which Key
 	use {
 	  "folke/which-key.nvim",
