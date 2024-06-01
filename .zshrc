@@ -73,12 +73,7 @@ ZSH_THEME="robbyrussell"
 plugins=(
 git
 git-prompt
-poetry
-virtualenvwrapper
-zsh-autosuggestions
-zsh-syntax-highlighting
-zsh-autocomplete)
-
+poetry)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,7 +109,6 @@ export PATH=$PATH:$HOME/.tfenv/bin
 export PATH=$PATH:$HOME/.local/bin
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 unsetopt nomatch
-eval "$(starship init zsh)"
 alias c=clear
 
 #Custom Functions for Zonal
