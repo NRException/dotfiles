@@ -38,6 +38,7 @@ return require('packer').startup(function(use)
 			{'L3MON4D3/LuaSnip'},
 		}
 	}
+
 	-- Status bar plugins
 	use 'feline-nvim/feline.nvim'
 	use 'lewis6991/gitsigns.nvim'
@@ -53,9 +54,9 @@ return require('packer').startup(function(use)
         requires = { {"nvim-lua/plenary.nvim"} }
     }
 
-    -- Git good game.
+    -- Notes 
     use {
-        'ThePrimeagen/vim-be-good'
+        'dhananjaylatkar/notes.nvim'
     }
 
     -- oil netrw / browser replacement
@@ -88,7 +89,17 @@ return require('packer').startup(function(use)
 			-- logLevel = "info"
 		},
 		main = "trunk",
-		dependencies = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"}
+		requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"}
 	}
+
+
+    use({
+	    'MeanderingProgrammer/render-markdown.nvim',
+        after = {'nvim-treesitter'},
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+        config = function()
+            require('render-markdown').setup({})
+        end,
+    })
 end)
 

@@ -1,1 +1,5 @@
 .config/coc
+.config/htop
+.config/go/env
+.config/NuGet
+.config/nvim/plugin/packer_compiled.lua

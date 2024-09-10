@@ -1,8 +1,8 @@
 -- Map keys for vim builtin
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz", {desc = "Half page down"})
+vim.keymap.set("n", "<C-u>", "<C-u>zz", {desc = "Half page up"})
 
 vim.cmd("set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<")
 
@@ -19,8 +19,9 @@ local function show_hide_special_chars()
     end
 end
 
-vim.keymap.set("n", "<leader>l", show_hide_special_chars)
-
+vim.keymap.set("n", "<leader>l", show_hide_special_chars, {desc = "Show special characters"})
 
 -- Map keys for anything else (plugins etc...)
-vim.keymap.set("n", "<leader>b", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- Oil
+vim.keymap.set("n", "<leader>b", "<CMD>Oil<CR>", { desc = "Open oil" })
