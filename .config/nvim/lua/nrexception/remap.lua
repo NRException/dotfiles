@@ -21,6 +21,9 @@ end
 
 vim.keymap.set("n", "<leader>l", show_hide_special_chars, {desc = "Show special characters"})
 
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, {desc = "Show diagnostic info"})
+
+vim.keymap.set("n", "<leader>i", vim.lsp.buf.hover, {desc = "Show module info"})
 -- Map keys for anything else (plugins etc...)
 
 -- Oil
