@@ -3,4 +3,5 @@
 .config/go/env
 .config/NuGet
 .config/nvim/plugin/packer_compiled.lua
+.config/tmux/plugins
 .git
