@@ -3,16 +3,19 @@ vim.opt.signcolumn = 'yes'
 
 -- Change how diagnostics are displayed... https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
 vim.diagnostic.config({
-
-    virtual_lines = true,
-    --virtual_text = {
-    --    prefix = '',
-    --},
+    virtual_lines = false,
+    virtual_text = {
+        prefix = '',
+    },
     signs = true,
     underline = true,
     update_in_insert = true,
     severity_sort = true,
 })
+vim.keymap.set('n', 'gK', function()
+  local new_config = not vim.diagnostic.config().virtual_lines
+  vim.diagnostic.config({ virtual_lines = new_config })
+end, { desc = 'Toggle virtual_lines' })
 
 -- Set up LSP.
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
