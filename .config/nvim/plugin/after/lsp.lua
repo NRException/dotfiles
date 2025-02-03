@@ -3,9 +3,11 @@ vim.opt.signcolumn = 'yes'
 
 -- Change how diagnostics are displayed... https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
 vim.diagnostic.config({
-    virtual_text = {
-        prefix = '',
-    },
+
+    virtual_lines = true,
+    --virtual_text = {
+    --    prefix = '',
+    --},
     signs = true,
     underline = true,
     update_in_insert = true,
