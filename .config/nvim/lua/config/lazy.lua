@@ -57,15 +57,26 @@ end
 vim.keymap.set("n", "<leader>l", show_hide_special_chars, { desc = "Show special characters" })
 vim.keymap.set("n", "<leader>b", "<CMD>Oil<CR>", { desc = "Open oil" })
     -- Quickfix list simple bindings...
+
+Del_qf_item = function()
+  local items = vim.fn.getqflist()
+  local line = vim.fn.line('.')
+  table.remove(items, line)
+  vim.fn.setqflist(items, "r")
+  vim.api.nvim_win_set_cursor(0, { line-1, 0 })
+end
+local group = vim.api.nvim_create_augroup("quickfix_autocmds", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "qf",
+  group = group,
   callback = function()
     vim.cmd "set cursorline"
     vim.cmd "hi CursorLine term=bold cterm=bold guibg=Grey40"
     vim.cmd "hi QuickFixLine term=bold cterm=bold guibg=Grey40"
-    vim.keymap.set("n", "<Up>", "<Up><CR><C-w>p", { buffer = true, remap = false, desc = "Navigate up quickfix" })
-    vim.keymap.set("n", "<Down>", "<Down><CR><C-w>p", { remap = false, desc = "Navigate down quickfix" })
-
+    vim.api.nvim_buf_set_keymap(0, "n", "<Up>", "<Up><CR><C-w>p", { noremap = true, desc = "Navigate up [c]uickfix" })
+    vim.api.nvim_buf_set_keymap(0, "n", "<Down>", "<Down><CR><C-w>p", { noremap = true, desc = "Navigate down [c]uickfix" })
+    vim.api.nvim_buf_set_keymap(0, "n", "q", "<cmd>cclose | quit<CR>", {noremap = true, silent = true, desc = "Close [c]uickfix"})
+    vim.api.nvim_buf_set_keymap(0, "n", "dd", "<cmd> lua Del_qf_item() <CR>", { noremap = true, silent = true, desc = "Remove entry from QF" })
   end,
 })
 
