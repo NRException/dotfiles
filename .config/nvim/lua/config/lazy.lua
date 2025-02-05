@@ -56,6 +56,18 @@ local function show_hide_special_chars()
 end
 vim.keymap.set("n", "<leader>l", show_hide_special_chars, { desc = "Show special characters" })
 vim.keymap.set("n", "<leader>b", "<CMD>Oil<CR>", { desc = "Open oil" })
+    -- Quickfix list simple bindings...
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    vim.cmd "set cursorline"
+    vim.cmd "hi CursorLine term=bold cterm=bold guibg=Grey40"
+    vim.cmd "hi QuickFixLine term=bold cterm=bold guibg=Grey40"
+    vim.keymap.set("n", "<Up>", "<Up><CR><C-w>p", { buffer = true, remap = false, desc = "Navigate up quickfix" })
+    vim.keymap.set("n", "<Down>", "<Down><CR><C-w>p", { remap = false, desc = "Navigate down quickfix" })
+
+  end,
+})
 
 -- Setup lazy.nvim
 require("lazy").setup({
