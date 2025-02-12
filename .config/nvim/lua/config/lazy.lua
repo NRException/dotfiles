@@ -32,15 +32,12 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- enables long running undos by providing a file to dump undo history
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
 vim.opt.updatetime = 5
 
--- Vim custom keymaps...
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
 vim.cmd("set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<")
 local list_flop = false
 local function show_hide_special_chars()
@@ -54,10 +51,18 @@ local function show_hide_special_chars()
         print("Hiding special chars...")
     end
 end
+
+-- Vim custom keymaps...
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
 vim.keymap.set("n", "<leader>l", show_hide_special_chars, { desc = "Show special characters" })
 vim.keymap.set("n", "<leader>b", "<CMD>Oil<CR>", { desc = "Open oil" })
-    -- Quickfix list simple bindings...
+vim.keymap.set("n", "<C-Down>", ":move +1<CR>", { desc = "Move current line down" })
+vim.keymap.set("n", "<C-Up>", ":move -1<CR>", { desc = "Move current line up" })
+vim.keymap.set("x", "<C-Down>", ":move '>+1<CR>gv=gv", { desc = "Move selected block down" })
+vim.keymap.set("x", "<C-Up>", ":move '<-2<CR>gv=gv", { desc = "Move selected block up" })
 
+-- Quickfix list simple bindings...
 Del_qf_item = function()
   local items = vim.fn.getqflist()
   local line = vim.fn.line('.')
