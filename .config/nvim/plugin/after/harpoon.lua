@@ -5,3 +5,8 @@ vim.keymap.set("n", "<leader>hm", function() harpoon.ui:toggle_quick_menu(harpoo
 vim.keymap.set("n", "<leader>ha", function() harpoon:list():add(); print("Added file to harpoon list.") end, {desc = "[H]arpoon Add"})
 vim.keymap.set("n", "<C-p>", function() harpoon:list():prev() end, {desc = "Harpoon Previous File"})
 vim.keymap.set("n", "<C-n>", function() harpoon:list():next() end, {desc = "Harpoon Next File"})
+vim.keymap.set("n", "<C-q>", function() harpoon:list():select(0) end, {desc = "Harpoon File 1"})
+vim.keymap.set("n", "<C-w>", function() harpoon:list():select(1) end, {desc = "Harpoon File 2"})
+vim.keymap.set("n", "<C-f>", function() harpoon:list():select(2) end, {desc = "Harpoon File 3"})
+vim.keymap.set("n", "<C-p>", function() harpoon:list():select(3) end, {desc = "Harpoon File 4"})
+vim.keymap.set("n", "<C-b>", function() harpoon:list():select(4) end, {desc = "Harpoon File 5"})
