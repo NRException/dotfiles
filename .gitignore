@@ -5,3 +5,4 @@
 .config/nvim/plugin/packer_compiled.lua
 .config/tmux/plugins
 .git
+lazy-lock.json
