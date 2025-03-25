@@ -71,6 +71,7 @@ vim.keymap.set("n", "<leader>l", show_hide_special_chars, { desc = "Show special
 vim.keymap.set("n", "<leader>b", "<CMD>Oil<CR>", { desc = "Open oil" })
 vim.keymap.set("n", "<leader>ss", "<CMD>SessionSave<CR>", { desc = "Session Save" })
 vim.keymap.set("n", "<leader>sr", "<CMD>SessionRestore<CR>", { desc = "Session Restore" })
+vim.keymap.set("n", "<leader>sf", "<CMD>SessionFind<CR>", { desc = "Session Find" })
 vim.keymap.set("n", "<C-Down>", ":move +1<CR>==", { desc = "Move current line down" })
 vim.keymap.set("n", "<C-Up>", ":move -2<CR>==", { desc = "Move current line up" })
 vim.keymap.set("x", "<C-Down>", ":move '>+1<CR>gv=gv", { desc = "Move selected block down" })
