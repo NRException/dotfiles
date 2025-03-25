@@ -22,6 +22,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.opt.fillchars = {eob = " "}
 -- Add custom options...
 vim.wo.relativenumber = true -- Add relative line numbers and remove ugly vim fill chars.
 vim.opt.number = true
@@ -37,7 +38,18 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- enables long running u
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
 vim.opt.updatetime = 5
-
+vim.g.clipboard = {
+  name = 'WslClipboard',
+  copy = {
+    ['+'] = 'clip.exe',
+    ['*'] = 'clip.exe',
+  },
+  paste = {
+    ['+'] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    ['*'] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+  },
+  cache_enabled = 0,
+}
 vim.cmd("set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<")
 local list_flop = false
 local function show_hide_special_chars()
@@ -108,6 +120,18 @@ require("lazy").setup({
     {'hrsh7th/cmp-cmdline'},
     {"williamboman/mason.nvim"},
     {"williamboman/mason-lspconfig.nvim"},
+
+    --Session handler, works with tmux to restore vim session data
+    {
+        'rmagatti/auto-session',
+        lazy = false,
+        ---enables autocomplete for opts
+        ---@module "auto-session"
+        ---@type AutoSession.Config
+        opts = {
+            suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
+        }
+    },
 
     -- Harpoon 2 ( Cheers Prime :) )
     {
