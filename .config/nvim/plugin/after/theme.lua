@@ -4,6 +4,10 @@ require("tokyonight").setup {
         sidebars = "transparent",
         floats = "transparent",
     },
+    -- test
+    on_colors = function(colors)
+        colors.comment = "#d9d9d9"
+    end,
 
     on_highlights = function(hl)
         hl.LineNrAbove = { fg = 'orange' }
