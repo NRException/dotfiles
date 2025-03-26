@@ -121,6 +121,7 @@ require("lazy").setup({
     {'hrsh7th/cmp-nvim-lsp'},
     {'hrsh7th/nvim-cmp', event = { "InsertEnter", "CmdlineEnter" },},
     {'hrsh7th/cmp-cmdline'},
+    {'hrsh7th/cmp-buffer'},
     {"williamboman/mason.nvim"},
     {"williamboman/mason-lspconfig.nvim"},
 

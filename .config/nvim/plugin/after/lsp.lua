@@ -30,19 +30,6 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
 -- Auto-completion setup using nvim-cmp
 local cmp = require('cmp')
 
-cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-        { name = 'path' }
-    }, {
-        {
-            name = 'cmdline',
-            option = {
-                ignore_cmds = { 'Man', '!' }
-            }
-        }
-    })
-})
 
 cmp.setup({
     sources = {
@@ -89,6 +76,19 @@ cmp.setup({
     })
 })
 
+cmp.setup.cmdline(':', {
+    --mapping = cmp.mapping.preset,
+    mapping = cmp.mapping.preset.cmdline({
+        ['<Down>'] = { c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }) },
+        ['<Up>'] = { c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }) },
+        ['<Tab>'] = { c = cmp.mapping.confirm(); },
+    }),
+    sources = cmp.config.sources({
+        { name = 'cmdline' }
+    }, {
+        {name = 'path'}
+    })
+})
 
 
 -- Attach LSP if one is available.
