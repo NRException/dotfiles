@@ -5,7 +5,20 @@ vim.opt.signcolumn = 'yes'
 vim.diagnostic.config({
     virtual_lines = false,
     virtual_text = {
-        prefix = '',
+        spacing = 10,
+        prefix = function(diagnostic)
+            if diagnostic.severity == vim.diagnostic.severity.ERROR then
+                return "¯¬ç"
+            elseif diagnostic.severity == vim.diagnostic.severity.WARN then
+                return "¯®¼"
+            elseif diagnostic.severity == vim.diagnostic.severity.INFO then
+                return "¯®┤"
+            elseif diagnostic.severity == vim.diagnostic.severity.HINT then
+                return "¯¼▓"
+            else
+                return "´åÆ"
+            end
+        end
     },
     signs = true,
     underline = true,
