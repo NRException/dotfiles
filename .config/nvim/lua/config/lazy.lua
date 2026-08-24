@@ -172,6 +172,16 @@ require("lazy").setup({
       },
     },
 
+    -- Sorting...
+    {
+        'sQVe/sort.nvim',
+        config = function()
+            require('sort').setup({
+                -- Optional configuration overrides.
+            })
+        end,
+    },
+
     -- Markdown rendering...
     {
         'MeanderingProgrammer/render-markdown.nvim',
