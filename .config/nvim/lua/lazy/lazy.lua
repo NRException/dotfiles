@@ -26,7 +26,7 @@ vim.opt.fillchars = {eob = " "}
 require("lazy").setup({
     spec = {
         {
-            'nvim-telescope/telescope.nvim', tag = '0.1.8',
+            'nvim-telescope/telescope.nvim',
             dependencies = { 'nvim-lua/plenary.nvim' }
         },
         {
@@ -95,7 +95,7 @@ require("lazy").setup({
         },
         {
             'nvim-lualine/lualine.nvim',
-            dependencies = { 'nvim-tree/nvim-web-devicons', opt = true }
+            dependencies = { 'nvim-tree/nvim-web-devicons', 'letieu/harpoon-lualine', opt = true }
         },
         {'xiyaowong/transparent.nvim', lazy=false},
         {'lewis6991/gitsigns.nvim'},
