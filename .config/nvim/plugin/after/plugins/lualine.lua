@@ -37,7 +37,8 @@ require('lualine').setup {
     lualine_c = { {
         'filename',
         file_status = true,
-        path = 1,
+        path = 3,
+        shorting_target = 40,
         symbols = {
             modified = '[+]',      -- Text to show when the file is modified.
             readonly = '[-]',      -- Text to show when the file is non-modifiable or readonly.
