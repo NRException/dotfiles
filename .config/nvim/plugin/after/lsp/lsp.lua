@@ -4,27 +4,12 @@ vim.opt.signcolumn = 'yes'
 -- Change how diagnostics are displayed... https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
 vim.diagnostic.config({
     virtual_lines = false,
-    virtual_text = {
-        spacing = 10,
-        prefix = function(diagnostic)
-            if diagnostic.severity == vim.diagnostic.severity.ERROR then
-                return "¯¬ç"
-            elseif diagnostic.severity == vim.diagnostic.severity.WARN then
-                return "¯®¼"
-            elseif diagnostic.severity == vim.diagnostic.severity.INFO then
-                return "¯®┤"
-            elseif diagnostic.severity == vim.diagnostic.severity.HINT then
-                return "¯¼▓"
-            else
-                return "´åÆ"
-            end
-        end
-    },
     signs = true,
     underline = true,
     update_in_insert = true,
     severity_sort = true,
 })
+
 vim.keymap.set('n', 'gK', function()
   local new_config = not vim.diagnostic.config().virtual_lines
   vim.diagnostic.config({ virtual_lines = new_config })

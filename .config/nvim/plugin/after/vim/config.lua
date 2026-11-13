@@ -1,5 +1,29 @@
--- Add custom options...
+-- Vim custom keymaps...
+local list_flop = false
+local function show_hide_special_chars()
+    if list_flop == true then
+        list_flop = false
+        vim.cmd("set list")
+        print("Showing special chars...")
+    else
+        list_flop = true
+        vim.cmd("set nolist")
+        print("Hiding special chars...")
+    end
+end
 
+vim.keymap.set("n", "<leader>l", show_hide_special_chars, { desc = "Show special characters" })
+
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
+vim.keymap.set("n", "<C-Down>", ":move +1<CR>==", { desc = "Move current line down" })
+vim.keymap.set("n", "<C-Up>", ":move -2<CR>==", { desc = "Move current line up" })
+vim.keymap.set("x", "<C-Down>", ":move '>+1<CR>gv=gv", { desc = "Move selected block down" })
+vim.keymap.set("x", "<C-Up>", ":move '<-2<CR>gv=gv", { desc = "Move selected block up" })
+
+-- Vim custom options
+
+vim.cmd("set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<")
 vim.wo.relativenumber = true -- Add relative line numbers and remove ugly vim fill chars.
 vim.opt.number = true
 vim.opt.fillchars = {eob = " "}
@@ -27,8 +51,6 @@ vim.g.clipboard = {
   cache_enabled = 0,
 }
 
-vim.cmd("set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<")
-
 -- Quickfix list simple bindings...
 Del_qf_item = function()
   local items = vim.fn.getqflist()
@@ -50,4 +72,14 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.api.nvim_buf_set_keymap(0, "n", "q", "<cmd>cclose | quit<CR>", {noremap = true, silent = true, desc = "Close [c]uickfix"})
     vim.api.nvim_buf_set_keymap(0, "n", "dd", "<cmd> lua Del_qf_item() <CR>", { noremap = true, silent = true, desc = "Remove entry from QF" })
   end,
+})
+
+-- LSP adjacent stuff
+vim.opt.signcolumn = 'yes'
+vim.diagnostic.config({
+    virtual_lines = false,
+    signs = true,
+    underline = true,
+    update_in_insert = true,
+    severity_sort = true,
 })

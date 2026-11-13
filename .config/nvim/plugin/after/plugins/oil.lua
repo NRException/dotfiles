@@ -7,6 +7,7 @@ require("oil").setup({
     -- see :help oil-columns
     columns = {
         "icon",
+        "size"
     },
 
     view_options = {
@@ -15,3 +16,5 @@ require("oil").setup({
     },
 
 })
+
+vim.keymap.set("n", "<leader>b", "<CMD>Oil<CR>")

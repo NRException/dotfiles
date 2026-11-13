@@ -11,7 +11,7 @@ ts.setup {
 -- telescope keybind mappings
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Telescope [F]ind [F]ile" })
-vim.keymap.set('n', '<leader>fg', ":Telescope live_grep_args<CR>", { desc = "Telescope [F]ind [G]rep" })
-vim.keymap.set('n', '<leader>gb', ":Telescope git_branches<CR>", { desc = "Telescope [G]ind [B]ranches" })
-vim.keymap.set('n', '<leader>gc', ":Telescope git_commits<CR>", { desc = "Telescope [G]it [C]ommits" })
-vim.keymap.set('n', '<leader>gs', ":Telescope git_status<CR>", { desc = "Telescope [G]it [S]status" })
+vim.keymap.set('n', '<leader>fi', ":Telescope live_grep_args<CR>", { desc = "Telescope [F]ind [I]nside (grep)" })
+vim.keymap.set('n', '<leader>fb', ":Telescope git_branches<CR>", { desc = "Telescope [F]ind [B]ranches" })
+vim.keymap.set('n', '<leader>fc', ":Telescope git_commits<CR>", { desc = "Telescope [F]ind [C]ommits" })
+vim.keymap.set('n', '<leader>fs', ":Telescope git_status<CR>", { desc = "Telescope [F]ind [S]status" })
