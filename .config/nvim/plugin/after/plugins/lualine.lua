@@ -45,8 +45,15 @@ require('lualine').setup {
             newfile = '[New]',     -- Text to show for newly created file before first write
             },
         },
-    },
-    lualine_v = {
+
+        {
+            'harpoon2',
+            icon = 'harpoons:',
+            indicators = { "q", "w", "f", "p", "b" },
+            active_indicators = { "󱡅", "󱡅", "󱡅", "󱡅", "󱡅" },
+            no_harpoon = "[No Harpoon]",
+
+        },
     },
     lualine_x = {'encoding', 'fileformat', 'filetype', 'lsp_status'},
     lualine_y = {'progress'},
