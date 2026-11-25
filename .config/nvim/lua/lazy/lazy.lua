@@ -97,6 +97,13 @@ require("lazy").setup({
             'nvim-lualine/lualine.nvim',
             dependencies = { 'nvim-tree/nvim-web-devicons', 'letieu/harpoon-lualine', opt = true }
         },
+        {
+            "lukas-reineke/indent-blankline.nvim",
+            main = "ibl",
+            ---@module "ibl"
+            ---@type ibl.config
+            opts = {},
+        },
         {'xiyaowong/transparent.nvim', lazy=false},
         {'lewis6991/gitsigns.nvim'},
         {'nvim-tree/nvim-web-devicons'},

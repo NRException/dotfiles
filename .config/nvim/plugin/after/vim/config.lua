@@ -12,8 +12,8 @@ local function show_hide_special_chars()
     end
 end
 
-vim.keymap.set("n", "<leader>l", show_hide_special_chars, { desc = "Show special characters" })
 
+vim.keymap.set("n", "<leader>l", show_hide_special_chars, { desc = "Show special characters" })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
 vim.keymap.set("n", "<C-Down>", ":move +1<CR>==", { desc = "Move current line down" })
@@ -35,6 +35,8 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- enables long running undos by providing a file to dump undo history
+vim.opt.undofile = true
+vim.opt.undolevels = 1000
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
 vim.opt.updatetime = 5

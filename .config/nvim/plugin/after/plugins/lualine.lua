@@ -38,7 +38,7 @@ require('lualine').setup {
         'filename',
         file_status = true,
         path = 3,
-        shorting_target = 40,
+        shorting_target = 70,
         symbols = {
             modified = '[+]',      -- Text to show when the file is modified.
             readonly = '[-]',      -- Text to show when the file is non-modifiable or readonly.
@@ -47,16 +47,19 @@ require('lualine').setup {
             },
         },
 
-        {
-            'harpoon2',
-            icon = 'harpoons:',
-            indicators = { "q", "w", "f", "p", "b" },
-            active_indicators = { "󱡅", "󱡅", "󱡅", "󱡅", "󱡅" },
-            no_harpoon = "[No Harpoon]",
-
-        },
     },
-    lualine_x = {'encoding', 'fileformat', 'filetype', 'lsp_status'},
+    lualine_x = {
+            'encoding',
+
+            {
+                'harpoon2',
+                icon = '🐋:',
+                indicators = { "1", "2", "3", "4", "5" },
+                active_indicators = { "󱡅", "󱡅", "󱡅", "󱡅", "󱡅" },
+                no_harpoon = "[No Harpoon]",
+            },
+
+            'filetype', 'lsp_status'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
