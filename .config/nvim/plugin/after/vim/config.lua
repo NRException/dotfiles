@@ -13,7 +13,7 @@ local function show_hide_special_chars()
 end
 
 
-vim.keymap.set("n", "<leader>l", show_hide_special_chars, { desc = "Show special characters" })
+vim.keymap.set("n", "<leader>tc", show_hide_special_chars, { desc = "Show special characters" })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
 vim.keymap.set("n", "<C-Down>", ":move +1<CR>==", { desc = "Move current line down" })
@@ -22,7 +22,23 @@ vim.keymap.set("x", "<C-Down>", ":move '>+1<CR>gv=gv", { desc = "Move selected b
 vim.keymap.set("x", "<C-Up>", ":move '<-2<CR>gv=gv", { desc = "Move selected block up" })
 
 -- Vim custom options
+local function set_clipboard()
+	local b = os.execute("cat /etc/os-release| grep -x 'ID=.*")
+	return b
+end
 
+vim.g.clipboard = {
+  name = 'WslClipboard',
+  copy = {
+    ['+'] = 'clip.exe',
+    ['*'] = 'clip.exe',
+  },
+  paste = {
+    ['+'] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    ['*'] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+  },
+  cache_enabled = 0,
+}
 vim.cmd("set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<")
 vim.wo.relativenumber = true -- Add relative line numbers and remove ugly vim fill chars.
 vim.opt.number = true
@@ -40,18 +56,6 @@ vim.opt.undolevels = 1000
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
 vim.opt.updatetime = 5
-vim.g.clipboard = {
-  name = 'WslClipboard',
-  copy = {
-    ['+'] = 'clip.exe',
-    ['*'] = 'clip.exe',
-  },
-  paste = {
-    ['+'] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-    ['*'] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-  },
-  cache_enabled = 0,
-}
 
 -- Quickfix list simple bindings...
 Del_qf_item = function()
