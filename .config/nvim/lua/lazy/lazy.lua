@@ -59,12 +59,13 @@ require("lazy").setup({
             -- Optional dependencies
             dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
         },
-        -- UndoTree
+        -- UndoTree (now atone.nvim)
         {
-            "jiaoshijie/undotree",
-            opts = {
-                -- your options
-            },
+            "XXiaoA/atone.nvim",
+            cmd = "Atone",
+            ---@module "atone"
+            ---@type AtoneConfig
+            opts = {},
         },
         -- WhichKey...
         {
